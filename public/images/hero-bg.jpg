@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#e8d5b5"/>
+  <rect width="1920" height="1080" fill="url(#wood)" opacity="0.3"/>
+  <defs>
+    <pattern id="wood" patternUnits="userSpaceOnUse" width="60" height="10">
+      <rect width="60" height="10" fill="none"/>
+      <line x1="0" y1="5" x2="60" y2="5" stroke="#b8621e" stroke-width="0.5" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <rect x="880" y="480" width="160" height="120" rx="8" fill="none" stroke="#8b4a1f" stroke-width="3" opacity="0.4"/>
+  <circle cx="910" cy="510" r="12" fill="#8b4a1f" opacity="0.4"/>
+  <polygon points="880,600 920,545 960,575 1000,530 1040,600" fill="#8b4a1f" opacity="0.3"/>
+  <text x="960" y="640" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#6b3515" opacity="0.5">hero-bg — Imagem em breve</text>
+</svg>

@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brown-deep: #1a0c04;
+  --brown-dark: #2a1308;
+  --brown-mid:  #5a2c10;
+  --wood-warm:  #BA4D3E;
+  --amber-base: #cf8f3a;
+  --amber-light:#e0b46a;
+  --cream-base: #f4ead6;
+  --cream-light:#fbf5e8;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Keyframes */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-wpp {
+  0%, 100% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5); }
+  50%       { box-shadow: 0 12px 40px rgba(37, 211, 102, 0.8); }
+}
+
+@keyframes scrollLine {
+  0%, 100% { opacity: 0.3; transform: translateX(0); }
+  50%       { opacity: 1;   transform: translateX(8px); }
+}
+
+/* Animation utilities */
+.animate-fadeup-1 { opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+.animate-fadeup-2 { opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
+.animate-fadeup-3 { opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
+.animate-fadeup-4 { opacity: 0; animation: fadeUp 0.8s 0.8s forwards; }
+.animate-pulse-wpp { animation: pulse-wpp 2.4s ease-in-out infinite; }
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section padding */
+.section-py { padding-top: 130px; padding-bottom: 130px; }
+@media (max-width: 640px) { .section-py { padding-top: 80px; padding-bottom: 80px; } }
+
+/* Container */
+.container-marion {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 88px;
+  padding-right: 88px;
+}
+@media (max-width: 1100px) {
+  .container-marion { padding-left: 32px; padding-right: 32px; }
+}
+@media (max-width: 640px) {
+  .container-marion { padding-left: 20px; padding-right: 20px; }
+}
+
+/* Hero title clamp */
+.hero-title-size {
+  font-size: clamp(42px, 5.8vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+/* Section title clamp */
+.section-title-size {
+  font-size: clamp(44px, 5vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+
+/* About title clamp */
+.about-title-size {
+  font-size: clamp(40px, 4.6vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+/* CTA title clamp */
+.cta-title-size {
+  font-size: clamp(48px, 6vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+/* Section marker (mono eyebrow) */
+.section-marker {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-marker .dash {
+  width: 28px; height: 1px;
+  background: var(--amber-base);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+.section-marker .num-italic {
+  font-family: var(--font-cormorant), serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--amber-base);
+}
+
+/* Product card hover bar */
+.feature-item { position: relative; }
+.feature-bar {
+  position: absolute; bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--amber-base);
+  transition: width 0.4s ease;
+}
+.feature-item:hover .feature-bar { width: calc(100% - 28px); }
+
+/* Product image zoom */
+.product-img-wrap { overflow: hidden; }
+.product-img {
+  transition: transform 0.7s ease;
+}
+.product-card-bento:hover .product-img { transform: scale(1.06); }
+.feature-item:hover .feature-img-bg { transform: scale(1.06); }
+
+/* Btn utilities */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--wood-warm);
+  color: var(--cream-light);
+  padding: 18px 28px;
+  border: 1px solid var(--wood-warm);
+  font-size: 11px; letter-spacing: 0.24em;
+  text-transform: uppercase; font-weight: 600;
+  transition: all 0.25s ease;
+  border-radius: 2px;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: #9e3f32; border-color: #9e3f32;
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: transparent;
+  color: rgba(244,234,214,0.85);
+  padding: 18px 28px;
+  border: 1px solid rgba(244,234,214,0.25);
+  font-size: 11px; letter-spacing: 0.24em;
+  text-transform: uppercase; font-weight: 500;
+  transition: all 0.25s ease;
+  border-radius: 2px;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  border-color: var(--amber-light);
+  color: var(--amber-light);
+}
