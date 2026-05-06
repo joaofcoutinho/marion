@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'
-import { CATEGORIES, PRIMARY_PHONE } from '@/lib/data'
+import { CATEGORIES, PRIMARY_PHONE, type Product } from '@/lib/data'
 import { wppLink } from '@/lib/whatsapp'
 
 const ArrowIcon = () => (
@@ -18,6 +18,66 @@ const WppIcon = () => (
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
   </svg>
 )
+
+const PdfIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <polyline points="14 2 14 8 20 8" />
+    <line x1="9" y1="13" x2="15" y2="13" />
+    <line x1="9" y1="17" x2="15" y2="17" />
+  </svg>
+)
+
+function ProductCard({ product, index }: { product: Product; index: number }) {
+  const wppHref = wppLink(PRIMARY_PHONE, product.wppMsg)
+  const num = String(index + 1).padStart(2, '0')
+
+  return (
+    <a
+      href={wppHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="cat-product-card"
+      aria-label={`Pedir orçamento de ${product.name} via WhatsApp`}
+    >
+      <div className="cat-product-media" aria-hidden="true">
+        {product.image ? (
+          <>
+            <div
+              className="cat-product-img"
+              style={{ backgroundImage: `url('${product.image}')` }}
+            />
+            <span className="cat-product-shade" />
+          </>
+        ) : (
+          <>
+            <div className="cat-product-placeholder">
+              <span className="cat-product-monogram font-cormorant italic">M</span>
+              <span className="cat-product-num font-mono">{num}</span>
+            </div>
+            <span className="cat-product-corner cat-product-corner-tl" />
+            <span className="cat-product-corner cat-product-corner-br" />
+          </>
+        )}
+      </div>
+
+      <div className="cat-product-body">
+        <h3 className="font-cormorant font-[500] text-cream-light cat-product-name">
+          {product.name}
+        </h3>
+        {product.desc && (
+          <p className="font-dmsans font-light text-cream-base/65 cat-product-desc">
+            {product.desc}
+          </p>
+        )}
+        <span className="cat-product-cta font-dmsans font-semibold">
+          <WppIcon />
+          Pedir orçamento
+        </span>
+      </div>
+    </a>
+  )
+}
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ slug: c.slug }))
@@ -121,43 +181,32 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
           <span className="cat-rule cat-rule-bottom" aria-hidden="true" />
 
           <div className="container-marion relative z-[1]" style={{ paddingTop: 110, paddingBottom: 110 }}>
-            <div className="cat-intro-grid">
-              <div>
-                <div
-                  className="font-mono text-amber-light"
-                  style={{ fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: 18, display: 'inline-flex', alignItems: 'center', gap: 14 }}
-                >
-                  <span style={{ width: 28, height: 1, background: 'var(--amber-base)' }} />
-                  Sobre a categoria
-                </div>
-                <h2 className="font-cormorant font-[500] text-cream-base section-title-size" style={{ marginBottom: 24, lineHeight: 1.05 }}>
-                  Madeira para <em className="italic text-amber-light">{cat.name.toLowerCase()}</em>.
-                </h2>
-              </div>
-              <p className="font-dmsans font-light text-cream-base/70" style={{ fontSize: 15.5, lineHeight: 1.75 }}>
-                {cat.intro}
-              </p>
-            </div>
-
-            {/* Items grid */}
-            <div className="cat-items">
-              {cat.items.map((item, i) => (
-                <article key={item.name} className="cat-item">
+            {/* Products grid */}
+            {cat.products && cat.products.length > 0 && (
+              <div className="cat-products-block">
+                <div className="cat-products-head">
                   <div
                     className="font-mono text-amber-light"
-                    style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', opacity: 0.7, marginBottom: 14 }}
+                    style={{ fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: 14, display: 'inline-flex', alignItems: 'center', gap: 14 }}
                   >
-                    {String(i + 1).padStart(2, '0')}
+                    <span style={{ width: 28, height: 1, background: 'var(--amber-base)' }} />
+                    Produtos disponíveis
                   </div>
-                  <h3 className="font-cormorant font-[500] text-cream-light" style={{ fontSize: 26, lineHeight: 1.15, marginBottom: 10 }}>
-                    {item.name}
-                  </h3>
-                  <p className="font-dmsans font-light text-cream-base/60" style={{ fontSize: 14, lineHeight: 1.6 }}>
-                    {item.desc}
+                  <h2 className="font-cormorant font-[500] text-cream-base" style={{ fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: 1.1, marginBottom: 12 }}>
+                    Linha em <em className="italic text-amber-light">destaque</em>.
+                  </h2>
+                  <p className="font-dmsans font-light text-cream-base/60" style={{ fontSize: 14.5, lineHeight: 1.7, maxWidth: 480 }}>
+                    Confira os produtos disponíveis nesta categoria. Clique em qualquer um para falar diretamente com a Marion via WhatsApp.
                   </p>
-                </article>
-              ))}
-            </div>
+                </div>
+
+                <div className="cat-products-grid">
+                  {cat.products.map((p, i) => (
+                    <ProductCard key={p.slug} product={p} index={i} />
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Inline CTA */}
             <div className="cat-cta-inline">
@@ -166,15 +215,15 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                   className="font-mono text-amber-light"
                   style={{ fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: 12, opacity: 0.85 }}
                 >
-                  Solicite seu orçamento
+                  Catálogo completo
                 </div>
                 <h3 className="font-cormorant font-[500] text-cream-base" style={{ fontSize: 30, lineHeight: 1.15, maxWidth: 520 }}>
-                  Pronto para sua obra. Atendimento <em className="italic text-amber-light">rápido</em> e direto.
+                  Veja toda a linha Marion no <em className="italic text-amber-light">catálogo</em> em PDF.
                 </h3>
               </div>
-              <a className="btn-primary" href={wppHref} target="_blank" rel="noopener noreferrer">
-                <WppIcon />
-                Falar no WhatsApp
+              <a className="btn-primary" href={cat.pdf ?? '/catalogo-marion.pdf'} target="_blank" rel="noopener noreferrer">
+                <PdfIcon />
+                Ver catálogo
               </a>
             </div>
           </div>
@@ -235,30 +284,165 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
         .cat-rule-top    { top: 0; }
         .cat-rule-bottom { bottom: 0; }
 
-        .cat-intro-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 80px;
-          align-items: end;
-          padding-bottom: 56px;
-          border-bottom: 1px solid rgba(207,143,58,0.18);
-          margin-bottom: 64px;
+        /* Products block */
+        .cat-products-block {
+          margin-top: 0;
         }
+        .cat-products-head { margin-bottom: 36px; max-width: 760px; }
 
-        .cat-items {
+        .cat-products-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 1px;
-          background: rgba(207,143,58,0.18);
-          border: 1px solid rgba(207,143,58,0.18);
+          gap: 18px;
         }
-        .cat-item {
+        .cat-product-card {
+          position: relative;
+          display: flex;
+          flex-direction: column;
           background: rgba(20,10,4,0.55);
-          padding: 32px 28px;
-          transition: background 0.3s ease;
+          border: 1px solid rgba(207,143,58,0.18);
+          text-decoration: none;
+          overflow: hidden;
+          transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
         }
-        .cat-item:hover {
-          background: rgba(20,10,4,0.75);
+        .cat-product-card:hover {
+          transform: translateY(-3px);
+          border-color: rgba(207,143,58,0.45);
+          box-shadow:
+            0 0 0 1px rgba(207,143,58,0.30),
+            0 0 24px rgba(207,143,58,0.16),
+            0 12px 40px rgba(207,143,58,0.10);
+        }
+
+        .cat-product-media {
+          position: relative;
+          aspect-ratio: 1/1;
+          overflow: hidden;
+          background:
+            radial-gradient(ellipse at 30% 20%, rgba(207,143,58,0.10), transparent 55%),
+            linear-gradient(160deg, rgba(90,44,16,0.55) 0%, rgba(20,10,4,0.85) 100%);
+          border-bottom: 1px solid rgba(207,143,58,0.18);
+        }
+        .cat-product-media::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-image:
+            repeating-linear-gradient(135deg, rgba(207,143,58,0.05) 0, rgba(207,143,58,0.05) 1px, transparent 1px, transparent 16px);
+          pointer-events: none;
+        }
+        .cat-product-img {
+          position: absolute;
+          inset: 0;
+          background-size: cover;
+          background-position: center;
+          transition: transform 0.6s ease;
+        }
+        .cat-product-card:hover .cat-product-img { transform: scale(1.04); }
+
+        /* Degrade debaixo pra cima — cobre marca d'água */
+        .cat-product-shade {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(
+            to top,
+            rgba(20,10,4,0.82) 0%,
+            rgba(20,10,4,0.55) 8%,
+            rgba(20,10,4,0.25) 20%,
+            rgba(20,10,4,0.08) 32%,
+            transparent 44%
+          );
+        }
+
+        .cat-product-placeholder {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .cat-product-monogram {
+          font-size: 96px;
+          line-height: 1;
+          color: rgba(207,143,58,0.32);
+          font-weight: 400;
+          letter-spacing: -0.02em;
+          transition: color 0.3s ease, transform 0.4s ease;
+        }
+        .cat-product-card:hover .cat-product-monogram {
+          color: rgba(207,143,58,0.55);
+          transform: scale(1.04);
+        }
+        .cat-product-num {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          font-size: 10px;
+          letter-spacing: 0.3em;
+          color: var(--amber-light);
+          opacity: 0.6;
+          text-transform: uppercase;
+        }
+        .cat-product-corner {
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          pointer-events: none;
+        }
+        .cat-product-corner-tl {
+          top: 12px;
+          left: 12px;
+          border-top: 1px solid rgba(207,143,58,0.45);
+          border-left: 1px solid rgba(207,143,58,0.45);
+        }
+        .cat-product-corner-br {
+          bottom: 12px;
+          right: 12px;
+          border-bottom: 1px solid rgba(207,143,58,0.45);
+          border-right: 1px solid rgba(207,143,58,0.45);
+        }
+
+        .cat-product-body {
+          padding: 22px 22px 24px;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+        }
+        .cat-product-name {
+          font-size: 22px;
+          line-height: 1.15;
+          margin-bottom: 8px;
+        }
+        .cat-product-desc {
+          font-size: 13.5px;
+          line-height: 1.6;
+          margin-bottom: 16px;
+          flex-grow: 1;
+        }
+        .cat-product-cta {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 13px 18px;
+          background: rgba(207,143,58,0.10);
+          border: 1px solid rgba(207,143,58,0.50);
+          color: var(--amber-light);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          font-weight: 600;
+          border-radius: 2px;
+          transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+          align-self: stretch;
+        }
+        .cat-product-card:hover .cat-product-cta {
+          background: var(--amber-base);
+          border-color: var(--amber-base);
+          color: var(--brown-deep);
+          transform: translateY(-1px);
+          box-shadow: 0 8px 20px rgba(207,143,58,0.28);
         }
 
         .cat-cta-inline {
@@ -315,16 +499,13 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
         .cat-other-card:hover .cat-other-arrow { gap: 14px; color: var(--cream-light); }
 
         @media (max-width: 1100px) {
-          .cat-intro-grid {
-            grid-template-columns: 1fr;
-            gap: 24px;
-          }
-          .cat-items { grid-template-columns: repeat(2, 1fr); }
+          .cat-products-grid { grid-template-columns: repeat(2, 1fr); }
           .cat-others-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 640px) {
-          .cat-items { grid-template-columns: 1fr; }
+          .cat-products-grid { grid-template-columns: 1fr; }
+          .cat-product-monogram { font-size: 72px; }
           .cat-cta-inline {
             padding: 28px 24px;
             gap: 20px;

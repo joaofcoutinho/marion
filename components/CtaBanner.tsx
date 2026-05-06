@@ -23,19 +23,20 @@ export default function CtaBanner() {
   return (
     <section
       id="cta"
-      className="relative text-cream-base overflow-hidden"
+      className="relative overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, rgba(45,19,8,0.85), rgba(26,12,4,0.95))',
+        background: '#ECE2CB',
+        color: 'var(--brown-deep)',
         padding: '140px 0',
-        borderTop: '1px solid rgba(207,143,58,0.2)',
-        borderBottom: '1px solid rgba(207,143,58,0.2)',
+        borderTop: '1px solid rgba(125,63,23,0.18)',
+        borderBottom: '1px solid rgba(125,63,23,0.18)',
       }}
     >
       {/* Diagonal texture */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'repeating-linear-gradient(135deg, rgba(224,180,106,0.04) 0, rgba(224,180,106,0.04) 1px, transparent 1px, transparent 50px)',
+          backgroundImage: 'repeating-linear-gradient(135deg, rgba(125,63,23,0.05) 0, rgba(125,63,23,0.05) 1px, transparent 1px, transparent 50px)',
         }}
         aria-hidden="true"
       />
@@ -47,7 +48,7 @@ export default function CtaBanner() {
           top: -200, left: '50%', transform: 'translateX(-50%)',
           width: 800, height: 800,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(207,143,58,0.08), transparent 60%)',
+          background: 'radial-gradient(circle, rgba(207,143,58,0.18), transparent 60%)',
         }}
         aria-hidden="true"
       />
@@ -58,10 +59,10 @@ export default function CtaBanner() {
       >
         {/* Marker with hyphens */}
         <div
-          className="inline-flex items-center gap-[14px] font-mono text-amber-light"
+          className="inline-flex items-center gap-[14px] font-mono"
           style={{
             fontSize: 10, letterSpacing: '0.32em', textTransform: 'uppercase',
-            opacity: 0.7, marginBottom: 32,
+            color: 'var(--amber-base)', marginBottom: 32,
           }}
         >
           <span style={{ width: 36, height: 1, background: 'var(--amber-base)', display: 'inline-block' }} />
@@ -71,12 +72,12 @@ export default function CtaBanner() {
 
         <h2
           ref={titleRef}
-          className="reveal font-cormorant font-[500] text-cream-base cta-title-size"
-          style={{ marginBottom: 36 }}
+          className="reveal font-cormorant font-[500] cta-title-size"
+          style={{ marginBottom: 36, color: 'var(--brown-deep)' }}
         >
           Transforme seu projeto<br />
           com quem entende de{' '}
-          <em className="madeira-word text-amber-light italic">
+          <em className="madeira-word italic">
             madeira
             <svg
               className="madeira-underline"
@@ -97,8 +98,8 @@ export default function CtaBanner() {
         </h2>
 
         <p
-          className="font-dmsans font-light text-cream-base/65 mx-auto"
-          style={{ fontSize: 17, lineHeight: 1.7, maxWidth: 520, marginBottom: 44 }}
+          className="font-dmsans font-light mx-auto"
+          style={{ fontSize: 17, lineHeight: 1.7, maxWidth: 520, marginBottom: 44, color: 'rgba(26,12,4,0.7)' }}
         >
           Fale agora com nossa equipe. Orçamento rápido, atendimento personalizado
           e os melhores preços do Espírito Santo.
@@ -133,11 +134,21 @@ export default function CtaBanner() {
       </div>
 
       <style>{`
+        /* Light-bg overrides for CTA section */
+        #cta .btn-ghost {
+          color: rgba(26,12,4,0.78);
+          border-color: rgba(125,63,23,0.32);
+        }
+        #cta .btn-ghost:hover {
+          color: var(--amber-base);
+          border-color: var(--amber-base);
+        }
+
         /* Hand-drawn underline that draws itself when in view */
         .madeira-word {
           position: relative;
           display: inline-block;
-          color: var(--amber-light);
+          color: var(--amber-base);
         }
         .madeira-underline {
           position: absolute;

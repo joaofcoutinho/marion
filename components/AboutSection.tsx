@@ -15,13 +15,13 @@ export default function AboutSection() {
   return (
     <section
       id="sobre"
-      className="relative text-cream-base overflow-hidden about-section"
-      style={{ background: 'var(--brown-dark)' }}
+      className="relative overflow-hidden about-section"
+      style={{ background: 'var(--brown-dark)', color: 'var(--brown-deep)' }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(rgba(207,143,58,0.04) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(rgba(125,63,23,0.07) 1px, transparent 1px)',
           backgroundSize: '32px 32px',
         }}
         aria-hidden="true"
@@ -31,29 +31,30 @@ export default function AboutSection() {
         {/* Left: text */}
         <div ref={refLeft} className="reveal">
           <div className="section-marker about-marker">
-            <span className="font-cormorant italic text-amber-base" style={{ fontSize: 14, opacity: 0.7 }}>02 / 06</span>
+            <span className="font-cormorant italic text-amber-base" style={{ fontSize: 14, opacity: 0.85 }}>02 / 06</span>
             <span className="dash" />
             <span>Nossa história</span>
           </div>
 
-          <h2 className="font-cormorant font-[500] text-cream-base about-title-size about-heading">
-            Tradição familiar em <em className="text-amber-light italic font-[500]">madeira de qualidade</em>.
+          <h2 className="font-cormorant font-[500] about-title-size about-heading" style={{ color: 'var(--brown-deep)' }}>
+            Tradição familiar em <em className="italic font-[500]" style={{ color: 'var(--amber-base)' }}>madeira de qualidade</em>.
           </h2>
 
           <p
-            className="font-cormorant italic text-cream-base/85 about-lead"
+            className="font-cormorant italic about-lead"
+            style={{ color: 'rgba(26,12,4,0.82)' }}
           >
             "Cada peça que sai da Marion carrega trinta anos de mão na madeira —
             e o compromisso de chegar até você do mesmo jeito que sai daqui."
           </p>
 
           <div className="about-body">
-            <p className="font-dmsans font-light text-cream-base/65" style={{ fontSize: 15, lineHeight: 1.75 }}>
+            <p className="font-dmsans font-light" style={{ fontSize: 15, lineHeight: 1.75, color: 'rgba(26,12,4,0.72)' }}>
               A Marion Madeiras nasceu em Iconha, no coração do Espírito Santo, com
               o propósito de levar madeiras de alta qualidade diretamente da fábrica
               para as mãos de quem constrói, decora e transforma ambientes.
             </p>
-            <p className="font-dmsans font-light text-cream-base/65" style={{ fontSize: 15, lineHeight: 1.75, marginTop: 18 }}>
+            <p className="font-dmsans font-light" style={{ fontSize: 15, lineHeight: 1.75, marginTop: 18, color: 'rgba(26,12,4,0.72)' }}>
               Hoje, com lojas em Guarapari, Cachoeiro de Itapemirim e Anchieta,
               mantemos o compromisso de origem: madeiras certificadas, atendimento
               personalizado e os melhores preços do mercado.
@@ -63,11 +64,11 @@ export default function AboutSection() {
           <div className="about-stats">
             {STATS.map((s) => (
               <div key={s.label}>
-                <div className="font-cormorant font-[500] text-amber-light about-stat-num">
+                <div className="font-cormorant font-[500] about-stat-num" style={{ color: 'var(--amber-base)' }}>
                   {s.num}
-                  {s.sup && <em className="italic text-amber-base" style={{ fontSize: '0.6em' }}>{s.sup}</em>}
+                  {s.sup && <em className="italic" style={{ fontSize: '0.6em', color: 'var(--wood-warm)' }}>{s.sup}</em>}
                 </div>
-                <div className="font-mono text-cream-base/50" style={{ fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', marginTop: 8 }}>
+                <div className="font-mono" style={{ fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', marginTop: 8, color: 'rgba(26,12,4,0.55)' }}>
                   {s.label}
                 </div>
               </div>
@@ -100,6 +101,11 @@ export default function AboutSection() {
 
       <style>{`
         .about-section { padding: 140px 0 120px; }
+        .about-section .section-marker { color: var(--amber-base); }
+        .about-section .section-marker .dash { background: var(--amber-base); opacity: 0.7; }
+        .about-section .about-stats { border-top-color: rgba(125,63,23,0.18) !important; }
+        .about-section .about-lead { border-left-color: var(--amber-base); }
+        .about-section .about-frame { border-color: rgba(125,63,23,0.28) !important; }
         .about-inner {
           display: grid;
           grid-template-columns: 1fr 1fr;

@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         brown: {
           deep:  '#1a0c04',
-          dark:  '#2a1308',
+          dark:  '#ece2cb',
           mid:   '#5a2c10',
           base:  '#7d3f17',
         },

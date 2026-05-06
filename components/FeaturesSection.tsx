@@ -4,15 +4,15 @@ export default function FeaturesSection() {
   return (
     <section
       id="diferenciais"
-      className="relative text-cream-base overflow-hidden features-section"
-      style={{ background: 'var(--brown-dark)' }}
+      className="relative overflow-hidden features-section"
+      style={{ background: 'var(--brown-dark)', color: 'var(--brown-deep)' }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
-            repeating-linear-gradient(0deg, rgba(207,143,58,0.04) 0, rgba(207,143,58,0.04) 1px, transparent 1px, transparent 80px),
-            repeating-linear-gradient(90deg, rgba(207,143,58,0.04) 0, rgba(207,143,58,0.04) 1px, transparent 1px, transparent 80px)
+            repeating-linear-gradient(0deg, rgba(125,63,23,0.05) 0, rgba(125,63,23,0.05) 1px, transparent 1px, transparent 80px),
+            repeating-linear-gradient(90deg, rgba(125,63,23,0.05) 0, rgba(125,63,23,0.05) 1px, transparent 1px, transparent 80px)
           `,
         }}
         aria-hidden="true"
@@ -27,24 +27,24 @@ export default function FeaturesSection() {
               <span className="num-italic">04 / 06</span>
               <span>Por que nos escolher</span>
             </div>
-            <h2 className="font-cormorant font-[500] text-cream-base section-title-size">
-              O que nos<br /><em className="text-amber-light italic">diferencia</em>.
+            <h2 className="font-cormorant font-[500] section-title-size" style={{ color: 'var(--brown-deep)' }}>
+              O que nos<br /><em className="italic" style={{ color: 'var(--amber-base)' }}>diferencia</em>.
             </h2>
           </div>
-          <p className="font-dmsans font-light text-cream-base/60 features-desc" style={{ fontSize: 15, lineHeight: 1.7, maxWidth: 340 }}>
+          <p className="font-dmsans font-light features-desc" style={{ fontSize: 15, lineHeight: 1.7, maxWidth: 340, color: 'rgba(26,12,4,0.65)' }}>
             Décadas de experiência transformadas em diferenciais reais para o seu projeto — da floresta até a sua obra.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="features-list" style={{ borderTop: '1px solid rgba(207,143,58,0.18)' }}>
+        <div className="features-list" style={{ borderTop: '1px solid rgba(125,63,23,0.22)' }}>
           {FEATURES.map((feat, i) => (
             <div
               key={feat.title}
               className="feature-item group"
               data-last={i === FEATURES.length - 1 ? 'true' : 'false'}
             >
-              <div className="feature-img-wrap relative overflow-hidden" style={{ background: 'var(--brown-deep)', border: '1px solid rgba(207,143,58,0.15)' }}>
+              <div className="feature-img-wrap relative overflow-hidden" style={{ background: 'var(--brown-deep)', border: '1px solid rgba(125,63,23,0.18)' }}>
                 <div
                   className="feature-img-bg absolute inset-0 bg-cover bg-center transition-transform duration-700"
                   style={{ backgroundImage: `url('${feat.image}')`, filter: 'saturate(1.05)' }}
@@ -58,10 +58,10 @@ export default function FeaturesSection() {
                 </span>
               </div>
 
-              <h3 className="font-cormorant font-semibold text-cream-base feature-title">
+              <h3 className="font-cormorant font-semibold feature-title" style={{ color: 'var(--brown-deep)' }}>
                 {feat.title}
               </h3>
-              <p className="font-dmsans font-light text-cream-base/60 feature-text">
+              <p className="font-dmsans font-light feature-text" style={{ color: 'rgba(26,12,4,0.65)' }}>
                 {feat.desc}
               </p>
               <span className="feature-bar" />
@@ -72,6 +72,9 @@ export default function FeaturesSection() {
 
       <style>{`
         .features-section { padding: 130px 0; }
+        .features-section .section-marker { color: var(--amber-base); }
+        .features-section .section-marker .dash { background: var(--amber-base); opacity: 0.7; }
+        .features-section .section-marker .num-italic { color: var(--wood-warm); }
 
         .features-head {
           display: grid;
@@ -94,7 +97,8 @@ export default function FeaturesSection() {
           transition: background 0.3s;
         }
         .feature-item[data-last='true'] { border-right: none; padding-right: 0; }
-        .feature-item:hover { background: linear-gradient(180deg, rgba(207,143,58,0.08), transparent); }
+        .feature-item { border-right-color: rgba(125,63,23,0.16); }
+        .feature-item:hover { background: linear-gradient(180deg, rgba(207,143,58,0.12), transparent); }
 
         .feature-img-wrap {
           width: 100%;
@@ -112,9 +116,9 @@ export default function FeaturesSection() {
           .feature-item {
             padding: 0 20px 32px 0;
             border-right: none;
-            border-bottom: 1px solid rgba(207,143,58,0.12);
+            border-bottom: 1px solid rgba(125,63,23,0.16);
           }
-          .feature-item:nth-child(odd)  { border-right: 1px solid rgba(207,143,58,0.12); }
+          .feature-item:nth-child(odd)  { border-right: 1px solid rgba(125,63,23,0.16); }
           .feature-item:nth-last-child(-n+2) { border-bottom: none; }
           .feature-item[data-last='true'] { padding-right: 0; }
           .feature-bar { display: none; }
@@ -126,7 +130,7 @@ export default function FeaturesSection() {
           .feature-item {
             padding: 0 0 28px 0;
             border-right: none !important;
-            border-bottom: 1px solid rgba(207,143,58,0.12);
+            border-bottom: 1px solid rgba(125,63,23,0.16);
           }
           .feature-item[data-last='true'] { border-bottom: none; }
           .feature-title { font-size: 20px; }

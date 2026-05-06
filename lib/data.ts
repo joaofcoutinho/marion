@@ -25,34 +25,24 @@ export const STORES = [
 
 export const PRODUCTS = [
   {
-    slug: 'construcao',
+    slug: 'telhado',
     tag: 'Categoria',
     span: 'feature' as const,
-    name: 'Construção.',
-    desc: 'Vigas, caibros, pontaletes e estruturas robustas para toda a sua obra.',
-    image: '/images/cat-construcao.png',
-    wppMsg: 'Olá, tenho interesse em madeiras para construção!',
+    name: 'Telhado.',
+    desc: '',
+    image: '/images/cat-telhado.png',
+    wppMsg: 'Olá, preciso de madeiras para telhado!',
     num: '01',
   },
   {
-    slug: 'telhado',
+    slug: 'esquadrias',
     tag: 'Categoria',
     span: 'tall' as const,
-    name: 'Telhado.',
-    desc: 'Ripas, caibros e estruturas para coberturas seguras e duradouras.',
-    image: '/images/cat-telhado.png',
-    wppMsg: 'Olá, preciso de madeiras para telhado!',
-    num: '02',
-  },
-  {
-    slug: 'pintura',
-    tag: 'Categoria',
-    span: 'std' as const,
-    name: 'Pintura.',
+    name: 'Esquadrias.',
     desc: '',
-    image: '/images/cat-pintura.png',
-    wppMsg: 'Olá, gostaria de informações sobre pintura!',
-    num: '03',
+    image: '/images/cat-esquadrias.png',
+    wppMsg: 'Olá, tenho interesse em esquadrias!',
+    num: '02',
   },
   {
     slug: 'decks-madeiras',
@@ -62,6 +52,16 @@ export const PRODUCTS = [
     desc: '',
     image: '/images/cat-deck.png',
     wppMsg: 'Olá, tenho interesse em decks e madeiras nobres!',
+    num: '03',
+  },
+  {
+    slug: 'moveis',
+    tag: 'Categoria',
+    span: 'std' as const,
+    name: 'Móveis.',
+    desc: '',
+    image: '/images/cat-moveis.png',
+    wppMsg: 'Olá, tenho interesse em móveis!',
     num: '04',
   },
 ]
@@ -103,6 +103,14 @@ export const FEATURES = [
 export const PRIMARY_PHONE = '27997608006'
 export const INSTAGRAM = 'https://www.instagram.com/marionmadeirasoficial'
 
+export type Product = {
+  slug: string
+  name: string
+  desc?: string
+  image?: string
+  wppMsg: string
+}
+
 export type Category = {
   slug: string
   num: string
@@ -112,6 +120,8 @@ export type Category = {
   intro: string
   image: string
   items: { name: string; desc: string }[]
+  products?: Product[]
+  pdf?: string
   wppMsg: string
 }
 
@@ -132,6 +142,30 @@ export const CATEGORIES: Category[] = [
       { name: 'Tábuas Brutas', desc: 'Tábuas para fôrmas de concreto, fundo de laje e tapumes.' },
       { name: 'Ripas', desc: 'Peças leves para estruturas, caibramento e acabamentos.' },
     ],
+    products: [
+      {
+        slug: 'tabua-de-pinus',
+        name: 'Tábua de Pinus',
+        desc: 'Madeira leve e versátil, ideal para fôrmas, móveis simples e acabamentos internos.',
+        image: '/cat-construcao/tabus-pinus.png',
+        wppMsg: 'Olá! Tenho interesse na Tábua de Pinus. Pode me passar um orçamento?',
+      },
+      {
+        slug: 'madeirite-comum',
+        name: 'Madeirite Comum',
+        desc: 'Compensado resinado para fôrmas de concreto, tapumes e usos estruturais em obras.',
+        image: '/cat-construcao/madeirite-comum.png',
+        wppMsg: 'Olá! Tenho interesse no Madeirite Comum. Pode me passar um orçamento?',
+      },
+      {
+        slug: 'madeirite-plastificado',
+        name: 'Madeirite Plastificado',
+        desc: 'Compensado com película plástica de alta resistência. Reuso múltiplo em fôrmas e acabamento liso.',
+        image: '/cat-construcao/madeirite-plastificado.png',
+        wppMsg: 'Olá! Tenho interesse no Madeirite Plastificado. Pode me passar um orçamento?',
+      },
+    ],
+    pdf: '/catálogo_construção.pdf',
     wppMsg: 'Olá! Tenho interesse em madeiras para construção e gostaria de um orçamento.',
   },
   {
