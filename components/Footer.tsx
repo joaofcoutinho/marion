@@ -77,9 +77,10 @@ export default function Footer() {
               Lojas
             </h4>
             {[
-              { label: 'Guarapari', href: 'https://wa.me/5527997608006' },
-              { label: 'Cachoeiro', href: 'https://wa.me/5528999815860' },
-              { label: 'Anchieta',  href: 'https://wa.me/5528999512829' },
+              { label: 'Iconha (fábrica)', href: 'https://wa.me/5528999397736' },
+              { label: 'Guarapari',        href: 'https://wa.me/5527997608006' },
+              { label: 'Cachoeiro',        href: 'https://wa.me/5528999815860' },
+              { label: 'Anchieta',         href: 'https://wa.me/5528999512829' },
             ].map(({ label, href }) => (
               <a
                 key={label}
@@ -92,12 +93,6 @@ export default function Footer() {
                 {label}
               </a>
             ))}
-            <span
-              className="block font-dmsans text-cream-base/60"
-              style={{ fontSize: 13, marginBottom: 10 }}
-            >
-              Iconha (matriz)
-            </span>
           </div>
 
           {/* Contato */}

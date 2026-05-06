@@ -1,25 +1,33 @@
 export const STORES = [
   {
+    city: 'Iconha',
+    cityItalic: true,
+    tag: 'Fábrica',
+    address: 'BR-101, Km 374 — Ilha do Coco, Iconha, ES · 29280-000',
+    phone: '28999397736',
+    display: '(28) 99939-7736',
+    index: '01',
+  },
+  {
     city: 'Guarapari',
     address: 'R. Francisco Vieira Passos, 1221 — Muquiçaba, Guarapari, ES',
     phone: '27997608006',
     display: '(27) 99760-8006',
-    index: '01',
+    index: '02',
   },
   {
     city: 'Cachoeiro',
-    cityItalic: true,
     address: 'Av. Dr. Aristides Campos, 129 — Santo Antônio, Cachoeiro, ES',
     phone: '28999815860',
     display: '(28) 99981-5860',
-    index: '02',
+    index: '03',
   },
   {
     city: 'Anchieta',
     address: 'Rod. do Sol, 2551 — Oliveira, Anchieta, ES',
     phone: '28999512829',
     display: '(28) 99951-2829',
-    index: '03',
+    index: '04',
   },
 ]
 

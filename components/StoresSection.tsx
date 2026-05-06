@@ -61,6 +61,24 @@ function StoreCard({ store, delay }: { store: typeof STORES[0]; delay: number })
       </a>
 
       <div className="flex flex-col flex-grow" style={{ padding: '28px 28px 28px' }}>
+        {store.tag && (
+          <span
+            className="font-mono"
+            style={{
+              fontSize: 9,
+              letterSpacing: '0.32em',
+              textTransform: 'uppercase',
+              color: 'var(--amber-base)',
+              marginBottom: 10,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+            }}
+          >
+            <span style={{ width: 16, height: 1, background: 'var(--amber-base)', display: 'inline-block' }} />
+            {store.tag}
+          </span>
+        )}
         <h3 className="font-cormorant font-[500] text-amber-light" style={{ fontSize: 32, lineHeight: 1.05, marginBottom: 12 }}>
           {store.cityItalic ? <em className="italic">{store.city}</em> : store.city}
         </h3>
@@ -109,7 +127,7 @@ export default function StoresSection() {
             </h2>
           </div>
           <p className="font-dmsans font-light text-cream-base/55 stores-desc" style={{ fontSize: 15, lineHeight: 1.7, maxWidth: 340 }}>
-            Três lojas no Espírito Santo para atender você com agilidade. Visite a unidade mais próxima ou fale por WhatsApp.
+            A fábrica em Iconha e três lojas espalhadas pelo Espírito Santo para atender você. Visite a unidade mais próxima ou fale por WhatsApp.
           </p>
         </div>
 
@@ -132,7 +150,7 @@ export default function StoresSection() {
           border-bottom: 1px solid rgba(207,143,58,0.18);
         }
         .stores-desc { margin-left: auto; }
-        .stores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .stores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 
         .store-card:hover {
           background: rgba(255,255,255,0.05) !important;

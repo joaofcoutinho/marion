@@ -434,15 +434,15 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
           text-transform: uppercase;
           font-weight: 600;
           border-radius: 2px;
-          transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
           align-self: stretch;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .cat-product-cta svg {
+          color: #25d366;
         }
         .cat-product-card:hover .cat-product-cta {
-          background: var(--amber-base);
-          border-color: var(--amber-base);
-          color: var(--brown-deep);
           transform: translateY(-1px);
-          box-shadow: 0 8px 20px rgba(207,143,58,0.28);
+          box-shadow: 0 8px 20px rgba(207,143,58,0.18);
         }
 
         .cat-cta-inline {
