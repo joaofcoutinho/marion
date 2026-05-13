@@ -9,7 +9,7 @@ import { wppLink } from '@/lib/whatsapp'
 export const metadata: Metadata = {
   title: 'Produtos — Marion Madeiras',
   description:
-    'Todos os produtos da Marion Madeiras divididos por categoria: construção, rural, telhado, pintura, fechaduras, dobradiças, esquadrias, móveis e decks.',
+    'Todos os produtos da Marion Madeiras divididos por categoria: construção, rural, telhado, pintura, fechaduras, esquadrias, móveis e decks.',
 }
 
 const ArrowIcon = () => (
@@ -80,7 +80,7 @@ export default function CategoriesIndexPage() {
               className="font-dmsans font-light text-cream-base/75"
               style={{ fontSize: 18, lineHeight: 1.6, maxWidth: 620 }}
             >
-              Tudo que a Marion oferece, organizado em nove categorias. Da estrutura ao acabamento — escolha a linha e veja os itens disponíveis.
+              Tudo que a Marion oferece, organizado em oito categorias. Da estrutura ao acabamento — escolha a linha e veja os itens disponíveis.
             </p>
           </div>
         </section>
@@ -109,7 +109,7 @@ export default function CategoriesIndexPage() {
                   Por categoria
                 </div>
                 <h2 className="font-cormorant font-[500] text-cream-base section-title-size" style={{ lineHeight: 1.05 }}>
-                  Nove linhas, <em className="italic text-amber-light">um padrão</em>.
+                  Oito linhas, <em className="italic text-amber-light">um padrão</em>.
                 </h2>
               </div>
               <p className="font-dmsans font-light text-cream-base/65" style={{ fontSize: 15, lineHeight: 1.7, maxWidth: 360 }}>
