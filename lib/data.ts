@@ -9,24 +9,24 @@ export const STORES = [
     index: '01',
   },
   {
-    city: 'Guarapari',
-    address: 'R. Francisco Vieira Passos, 1221 — Muquiçaba, Guarapari, ES',
-    phone: '27997608006',
-    display: '(27) 99760-8006',
-    index: '02',
-  },
-  {
     city: 'Cachoeiro',
     address: 'Av. Dr. Aristides Campos, 129 — Santo Antônio, Cachoeiro, ES',
     phone: '28999815860',
     display: '(28) 99981-5860',
-    index: '03',
+    index: '02',
   },
   {
     city: 'Anchieta',
     address: 'Rod. do Sol, 2551 — Oliveira, Anchieta, ES',
     phone: '28999512829',
     display: '(28) 99951-2829',
+    index: '03',
+  },
+  {
+    city: 'Guarapari',
+    address: 'R. Francisco Vieira Passos, 1221 — Muquiçaba, Guarapari, ES',
+    phone: '27997608006',
+    display: '(27) 99760-8006',
     index: '04',
   },
 ]
@@ -75,10 +75,10 @@ export const PRODUCTS = [
 ]
 
 export const BADGES = [
-  { num: '01', icon: 'shield',   title: 'Garantia de 1 Ano',  sub: 'Em todos os produtos' },
-  { num: '02', icon: 'discount', title: '5% de desconto',      sub: 'Pagamento à vista' },
-  { num: '03', icon: 'card',     title: 'Até 6× sem juros',    sub: 'Cartões de crédito' },
-  { num: '04', icon: 'truck',    title: 'Frete grátis',        sub: 'Para todo o Brasil' },
+  { num: '01', icon: 'shield',   title: 'Garantia de Procedência', sub: 'Em todos os produtos' },
+  { num: '02', icon: 'discount', title: '10% de desconto',          sub: 'Pagamento à vista' },
+  { num: '03', icon: 'card',     title: 'Até 6× sem juros',         sub: 'Cartões de crédito' },
+  { num: '04', icon: 'truck',    title: 'Frete grátis',             sub: 'Para o Sul do ES' },
 ]
 
 export const FEATURES = [

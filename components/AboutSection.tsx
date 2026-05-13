@@ -3,7 +3,7 @@
 import { useReveal } from '@/hooks/useReveal'
 
 const STATS = [
-  { num: '30', sup: '+', label: 'Anos de tradição' },
+  { num: '40', sup: '+', label: 'Anos de tradição' },
   { num: '04', sup: '',  label: 'Lojas no ES' },
   { num: '5k', sup: '+', label: 'Clientes atendidos' },
 ]
@@ -44,7 +44,7 @@ export default function AboutSection() {
             className="font-cormorant italic about-lead"
             style={{ color: 'rgba(26,12,4,0.82)' }}
           >
-            "Cada peça que sai da Marion carrega trinta anos de mão na madeira —
+            "Cada peça que sai da Marion carrega mais de quarenta anos de mão na madeira —
             e o compromisso de chegar até você do mesmo jeito que sai daqui."
           </p>
 

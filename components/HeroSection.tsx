@@ -57,7 +57,7 @@ export default function HeroSection() {
 
           <p className="animate-fadeup-3 font-dmsans font-light text-cream-base/70 hero-sub">
             Madeiras selecionadas direto da fábrica para construção, mobiliário e
-            acabamento. Três décadas de tradição familiar no coração do Espírito Santo.
+            acabamento. Mais de quatro décadas de tradição familiar no coração do Espírito Santo.
           </p>
 
           <div className="animate-fadeup-4 hero-actions">

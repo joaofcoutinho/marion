@@ -39,7 +39,7 @@ export default function Footer() {
               style={{ fontSize: 13, lineHeight: 1.7, maxWidth: 360 }}
             >
               Madeiras selecionadas direto da fábrica para construção, mobiliário e
-              acabamento. Qualidade e tradição familiar há mais de três décadas.
+              acabamento. Qualidade e tradição familiar há mais de quatro décadas.
             </p>
           </div>
 
