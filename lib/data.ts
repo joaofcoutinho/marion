@@ -86,25 +86,25 @@ export const FEATURES = [
     num: '01',
     title: 'Direto da fábrica.',
     desc: 'Sem intermediários. Melhor preço e controle total da qualidade em cada peça.',
-    image: '/images/product-telhado.jpg',
+    icon: 'factory' as const,
   },
   {
     num: '02',
     title: 'Atendimento ágil.',
     desc: 'Orçamento rápido via WhatsApp com equipe especializada e atenciosa.',
-    image: '/images/product-cadeiras.jpg',
+    icon: 'chat' as const,
   },
   {
     num: '03',
     title: 'Madeira certificada.',
     desc: 'Madeiras selecionadas, tratadas e com procedência garantida.',
-    image: '/images/product-deck.jpg',
+    icon: 'seal' as const,
   },
   {
     num: '04',
     title: 'Quatro lojas no ES.',
     desc: 'Guarapari, Cachoeiro, Anchieta e Iconha. Sempre perto de você.',
-    image: '/images/product-rural.jpg',
+    icon: 'pin' as const,
   },
 ]
 

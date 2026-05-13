@@ -1,5 +1,36 @@
 import { FEATURES } from '@/lib/data'
 
+const ICONS: Record<string, JSX.Element> = {
+  factory: (
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M8 54V30l12 6V24l12 6V20l24 14v20H8z" />
+      <path d="M8 54h48" />
+      <path d="M18 46v4M28 46v4M38 46v4M48 46v4" />
+      <path d="M44 20V10h6v10" />
+      <path d="M47 14v-1" />
+    </svg>
+  ),
+  chat: (
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 14h32a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H28l-10 8V40h-6a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4z" />
+      <path d="M20 24h18" />
+      <path d="M20 30h12" />
+    </svg>
+  ),
+  seal: (
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M32 6l5.6 4.2 6.9-1 2 6.7 6.5 2.6-1.7 6.8 4.4 5.5-4.4 5.5 1.7 6.8-6.5 2.6-2 6.7-6.9-1L32 54l-5.6-4.2-6.9 1-2-6.7-6.5-2.6 1.7-6.8L8.3 29.2l4.4-5.5-1.7-6.8 6.5-2.6 2-6.7 6.9 1L32 6z" />
+      <path d="M24 30l5.5 5.5L42 23" />
+    </svg>
+  ),
+  pin: (
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M32 56s-16-14-16-26a16 16 0 0 1 32 0c0 12-16 26-16 26z" />
+      <circle cx="32" cy="28" r="6" />
+    </svg>
+  ),
+}
+
 export default function FeaturesSection() {
   return (
     <section
@@ -44,18 +75,11 @@ export default function FeaturesSection() {
               className="feature-item group"
               data-last={i === FEATURES.length - 1 ? 'true' : 'false'}
             >
-              <div className="feature-img-wrap relative overflow-hidden" style={{ background: 'var(--brown-deep)', border: '1px solid rgba(125,63,23,0.18)' }}>
-                <div
-                  className="feature-img-bg absolute inset-0 bg-cover bg-center transition-transform duration-700"
-                  style={{ backgroundImage: `url('${feat.image}')`, filter: 'saturate(1.05)' }}
-                />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(20,10,4,0.1) 40%, rgba(20,10,4,0.7) 100%)' }} />
-                <span
-                  className="absolute font-cormorant italic text-amber-light z-[2]"
-                  style={{ bottom: 14, left: 14, fontSize: 38, fontWeight: 400, lineHeight: 1, textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}
-                >
-                  {feat.num}
-                </span>
+              <div className="feature-icon-wrap">
+                <span className="feature-icon-corner feature-icon-corner-tl" aria-hidden="true" />
+                <span className="feature-icon-corner feature-icon-corner-br" aria-hidden="true" />
+                <span className="feature-icon" aria-hidden="true">{ICONS[feat.icon]}</span>
+                <span className="feature-icon-num font-cormorant italic" aria-hidden="true">{feat.num}</span>
               </div>
 
               <h3 className="font-cormorant font-semibold feature-title" style={{ color: 'var(--brown-deep)' }}>
@@ -100,10 +124,48 @@ export default function FeaturesSection() {
         .feature-item { border-right-color: rgba(125,63,23,0.16); }
         .feature-item:hover { background: linear-gradient(180deg, rgba(207,143,58,0.12), transparent); }
 
-        .feature-img-wrap {
-          width: 100%;
-          aspect-ratio: 4/3;
-          margin-bottom: 28px;
+        .feature-icon-wrap {
+          position: relative;
+          width: 76px;
+          height: 76px;
+          margin-bottom: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--amber-base);
+          transition: transform 0.4s ease, color 0.3s ease;
+        }
+        .feature-item:hover .feature-icon-wrap {
+          transform: translateY(-2px);
+          color: var(--wood-warm);
+        }
+        .feature-icon { display: block; width: 44px; height: 44px; }
+        .feature-icon svg { width: 100%; height: 100%; display: block; }
+        .feature-icon-corner {
+          position: absolute;
+          width: 14px;
+          height: 14px;
+          pointer-events: none;
+          opacity: 0.6;
+        }
+        .feature-icon-corner-tl {
+          top: 0; left: 0;
+          border-top: 1px solid rgba(125,63,23,0.55);
+          border-left: 1px solid rgba(125,63,23,0.55);
+        }
+        .feature-icon-corner-br {
+          bottom: 0; right: 0;
+          border-bottom: 1px solid rgba(125,63,23,0.55);
+          border-right: 1px solid rgba(125,63,23,0.55);
+        }
+        .feature-icon-num {
+          position: absolute;
+          top: -4px;
+          right: -14px;
+          font-size: 14px;
+          letter-spacing: 0.04em;
+          color: rgba(125,63,23,0.55);
+          font-weight: 500;
         }
         .feature-title { font-size: 24px; line-height: 1.15; margin-bottom: 12px; }
         .feature-text  { font-size: 14px; line-height: 1.65; }
