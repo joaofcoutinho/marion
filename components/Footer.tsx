@@ -105,7 +105,7 @@ export default function Footer() {
             </h4>
             {[
               { label: '(27) 99760-8006',              href: wppHref,                         external: true  },
-              { label: 'contato@marion.com.br',         href: 'mailto:contato@marionmadeiras.com.br', external: false },
+              { label: 'fiscalloja@marionmadeiras.com.br', href: 'mailto:fiscalloja@marionmadeiras.com.br', external: false },
               { label: '@marionmadeirasoficial',         href: INSTAGRAM,                       external: true  },
             ].map(({ label, href, external }) => (
               <a
