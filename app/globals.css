@@ -113,12 +113,6 @@ html { scroll-behavior: smooth; }
   opacity: 0.5;
   flex-shrink: 0;
 }
-.section-marker .num-italic {
-  font-family: var(--font-cormorant), serif;
-  font-style: italic;
-  font-size: 14px;
-  color: var(--amber-base);
-}
 
 /* Product card hover bar */
 .feature-item { position: relative; }

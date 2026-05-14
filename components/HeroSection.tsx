@@ -83,7 +83,7 @@ export default function HeroSection() {
             borderRadius: 2,
             alignSelf: 'end',
           }}
-          aria-label="Em destaque: deck de madeira"
+          aria-label="Em destaque: Viga Paraju"
         >
           <span
             className="absolute"
@@ -99,17 +99,17 @@ export default function HeroSection() {
           </div>
 
           <div className="font-cormorant" style={{ fontSize: 26, lineHeight: 1.2, color: 'var(--cream-base)', marginBottom: 6 }}>
-            Deck nobre de <em className="text-amber-light italic">Cumaru</em>
+            Viga em <em className="text-amber-light italic">Paraju</em>
           </div>
 
           <div className="font-dmsans" style={{ fontSize: 12, color: 'rgba(244,234,214,0.55)', marginBottom: 18, letterSpacing: '0.04em' }}>
-            Áreas externas · Tratamento UV · Garantia 1 ano
+            Estrutura de telhado · Alta densidade · Madeira nobre
           </div>
 
           {[
-            { label: 'Densidade',  value: '1.05 g/cm³' },
-            { label: 'Origem',     value: 'Selecionada' },
-            { label: 'Acabamento', value: 'Premium' },
+            { label: 'Densidade',  value: '~1.10 g/cm³' },
+            { label: 'Origem',     value: 'Amazônica' },
+            { label: 'Acabamento', value: 'Aplainada' },
           ].map(({ label, value }) => (
             <div key={label} className="flex justify-between" style={{ padding: '14px 0', borderTop: '1px solid rgba(207,143,58,0.18)', fontSize: 12 }}>
               <span className="font-dmsans" style={{ color: 'rgba(244,234,214,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', fontSize: 10 }}>{label}</span>
@@ -118,7 +118,7 @@ export default function HeroSection() {
           ))}
 
           <a
-            href="#produtos"
+            href="/categorias/telhado"
             className="flex items-center justify-between font-mono hover:text-cream-light transition-colors duration-200"
             style={{ marginTop: 16, paddingTop: 16, borderTop: '1px solid rgba(207,143,58,0.18)', color: 'var(--amber-light)', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 600 }}
           >

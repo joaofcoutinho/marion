@@ -119,7 +119,6 @@ export default function StoresSection() {
           <div>
             <div className="section-marker" style={{ marginBottom: 24 }}>
               <span className="dash" />
-              <span className="num-italic">05 / 06</span>
               <span>Nossas lojas</span>
             </div>
             <h2 className="font-cormorant font-[500] text-cream-base section-title-size">

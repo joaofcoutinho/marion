@@ -31,7 +31,6 @@ export default function AboutSection() {
         {/* Left: text */}
         <div ref={refLeft} className="reveal">
           <div className="section-marker about-marker">
-            <span className="font-cormorant italic text-amber-base" style={{ fontSize: 14, opacity: 0.85 }}>02 / 06</span>
             <span className="dash" />
             <span>Nossa história</span>
           </div>
@@ -93,7 +92,6 @@ export default function AboutSection() {
                 <div className="font-mono text-amber-light" style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', opacity: 0.7, marginBottom: 4 }}>Iconha · ES</div>
                 <div className="font-cormorant italic text-cream-base" style={{ fontSize: 18 }}>Onde tudo começa</div>
               </div>
-              <div className="font-cormorant italic text-amber-light" style={{ fontSize: 28 }}>19°—S</div>
             </div>
           </div>
         </div>
