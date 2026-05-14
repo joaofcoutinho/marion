@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { PRIMARY_PHONE, INSTAGRAM } from '@/lib/data'
+import { PRIMARY_PHONE, INSTAGRAM, STORES } from '@/lib/data'
 import { wppLink } from '@/lib/whatsapp'
 
 export default function Footer() {
@@ -76,21 +76,21 @@ export default function Footer() {
             >
               Lojas
             </h4>
-            {[
-              { label: 'Iconha (fábrica)', href: 'https://wa.me/5528999397736' },
-              { label: 'Guarapari',        href: 'https://wa.me/5527997608006' },
-              { label: 'Cachoeiro',        href: 'https://wa.me/5528999815860' },
-              { label: 'Anchieta',         href: 'https://wa.me/5528999512829' },
-            ].map(({ label, href }) => (
+            {STORES.map((s) => (
               <a
-                key={label}
-                href={href}
+                key={s.phone}
+                href={wppLink(s.phone, `Olá! Vim pelo site e gostaria de falar com a loja de ${s.city}.`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block font-dmsans text-cream-base/60 hover:text-amber-light transition-colors duration-200"
-                style={{ fontSize: 13, marginBottom: 10, textDecoration: 'none' }}
+                className="block hover:text-amber-light transition-colors duration-200"
+                style={{ marginBottom: 14, textDecoration: 'none' }}
               >
-                {label}
+                <span className="block font-dmsans text-cream-base/80" style={{ fontSize: 13, lineHeight: 1.2 }}>
+                  {s.city}{s.tag ? ` (${s.tag.toLowerCase()})` : ''}
+                </span>
+                <span className="block font-dmsans text-cream-base/50" style={{ fontSize: 12, lineHeight: 1.2, marginTop: 2 }}>
+                  {s.display}
+                </span>
               </a>
             ))}
           </div>
@@ -104,9 +104,8 @@ export default function Footer() {
               Contato
             </h4>
             {[
-              { label: '(27) 99760-8006',              href: wppHref,                         external: true  },
               { label: 'fiscalloja@marionmadeiras.com.br', href: 'mailto:fiscalloja@marionmadeiras.com.br', external: false },
-              { label: '@marionmadeirasoficial',         href: INSTAGRAM,                       external: true  },
+              { label: '@marionmadeirasoficial',           href: INSTAGRAM,                                 external: true  },
             ].map(({ label, href, external }) => (
               <a
                 key={label}
