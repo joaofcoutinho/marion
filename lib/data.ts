@@ -2,7 +2,7 @@ export const STORES = [
   {
     city: 'Iconha',
     cityItalic: true,
-    tag: 'Fábrica',
+    tag: 'Matriz',
     address: 'BR-101, Km 374 — Ilha do Coco, Iconha, ES · 29280-000',
     phone: '28999397736',
     display: '(28) 99939-7736',
