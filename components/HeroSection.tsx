@@ -69,7 +69,7 @@ export default function HeroSection() {
             className="animate-fadeup-2 font-cormorant font-[500] text-cream-base hero-title-size hero-h1"
             style={{ textShadow: '0 4px 32px rgba(0,0,0,0.85), 0 2px 8px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.5)' }}
           >
-            A natureza em cada <em className="text-amber-light not-italic italic font-[400]">peça</em>
+            A natureza em cada&nbsp;<em className="text-amber-light not-italic italic font-[400]">peça</em>
             <span className="italic text-amber-base" style={{ fontWeight: 400, fontSize: '0.85em', verticalAlign: '0.05em' }}>,</span><br />
             o ofício em cada <em className="text-amber-light not-italic italic font-[400]">tábua</em>.
           </h1>
