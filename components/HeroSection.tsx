@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import { PRIMARY_PHONE } from '@/lib/data'
 import { wppLink } from '@/lib/whatsapp'
 
@@ -17,6 +18,20 @@ const WppIcon = () => (
 
 export default function HeroSection() {
   const wppHref = wppLink(PRIMARY_PHONE, 'Olá! Vim pelo site e gostaria de solicitar um orçamento.')
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    const onTime = () => {
+      if (v.duration && v.currentTime >= v.duration - 0.15) {
+        v.currentTime = 0
+        v.play().catch(() => {})
+      }
+    }
+    v.addEventListener('timeupdate', onTime)
+    return () => v.removeEventListener('timeupdate', onTime)
+  }, [])
 
   return (
     <section
@@ -24,9 +39,11 @@ export default function HeroSection() {
       style={{ minHeight: '100vh', paddingTop: 72 }}
     >
       <video
+        ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         src="/video-hero.mp4"
         autoPlay loop muted playsInline
+        preload="auto"
         aria-hidden="true"
       />
 
@@ -34,8 +51,8 @@ export default function HeroSection() {
         className="absolute inset-0 z-[1]"
         style={{
           background: `
-            linear-gradient(180deg, rgba(20,10,4,0.4) 0%, rgba(20,10,4,0.6) 50%, rgba(20,10,4,0.95) 100%),
-            linear-gradient(90deg, rgba(20,10,4,0.7) 0%, rgba(20,10,4,0.1) 60%, rgba(20,10,4,0.5) 100%)
+            radial-gradient(ellipse at center, rgba(20,10,4,0.55) 0%, rgba(20,10,4,0.35) 60%, rgba(20,10,4,0.25) 100%),
+            linear-gradient(180deg, rgba(20,10,4,0.45) 0%, rgba(20,10,4,0.5) 55%, rgba(20,10,4,0.85) 100%)
           `,
         }}
       />
@@ -48,9 +65,11 @@ export default function HeroSection() {
             Da Floresta · Para Sua Obra
           </div>
 
-          <h1 className="animate-fadeup-2 font-cormorant font-[500] text-cream-base hero-title-size hero-h1">
-            A natureza<br />
-            em cada <em className="text-amber-light not-italic italic font-[400]">peça</em>
+          <h1
+            className="animate-fadeup-2 font-cormorant font-[500] text-cream-base hero-title-size hero-h1"
+            style={{ textShadow: '0 4px 32px rgba(0,0,0,0.85), 0 2px 8px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.5)' }}
+          >
+            A natureza em cada <em className="text-amber-light not-italic italic font-[400]">peça</em>
             <span className="italic text-amber-base" style={{ fontWeight: 400, fontSize: '0.85em', verticalAlign: '0.05em' }}>,</span><br />
             o ofício em cada <em className="text-amber-light not-italic italic font-[400]">tábua</em>.
           </h1>
@@ -72,72 +91,25 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right: featured card */}
-        <aside
-          className="hero-card relative text-cream-base"
-          style={{
-            background: 'rgba(26,12,4,0.65)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(207,143,58,0.25)',
-            padding: 28,
-            borderRadius: 2,
-            alignSelf: 'end',
-          }}
-          aria-label="Em destaque: Viga Paraju"
-        >
-          <span
-            className="absolute"
-            style={{ top: -1, left: 24, right: 24, height: 2, background: 'var(--amber-base)' }}
-          />
-
-          <div
-            className="font-mono flex justify-between"
-            style={{ fontSize: 9, letterSpacing: '0.3em', color: 'var(--amber-light)', opacity: 0.7, textTransform: 'uppercase', marginBottom: 16 }}
-          >
-            <span>Em destaque</span>
-            <span>Nº 01</span>
-          </div>
-
-          <div className="font-cormorant" style={{ fontSize: 26, lineHeight: 1.2, color: 'var(--cream-base)', marginBottom: 6 }}>
-            Viga em <em className="text-amber-light italic">Paraju</em>
-          </div>
-
-          <div className="font-dmsans" style={{ fontSize: 12, color: 'rgba(244,234,214,0.55)', marginBottom: 18, letterSpacing: '0.04em' }}>
-            Estrutura de telhado · Alta densidade · Madeira nobre
-          </div>
-
-          {[
-            { label: 'Densidade',  value: '~1.10 g/cm³' },
-            { label: 'Origem',     value: 'Amazônica' },
-            { label: 'Acabamento', value: 'Aplainada' },
-          ].map(({ label, value }) => (
-            <div key={label} className="flex justify-between" style={{ padding: '14px 0', borderTop: '1px solid rgba(207,143,58,0.18)', fontSize: 12 }}>
-              <span className="font-dmsans" style={{ color: 'rgba(244,234,214,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', fontSize: 10 }}>{label}</span>
-              <span className="font-cormorant italic" style={{ color: 'var(--amber-light)', fontSize: 14 }}>{value}</span>
-            </div>
-          ))}
-
-          <a
-            href="/categorias/telhado"
-            className="flex items-center justify-between font-mono hover:text-cream-light transition-colors duration-200"
-            style={{ marginTop: 16, paddingTop: 16, borderTop: '1px solid rgba(207,143,58,0.18)', color: 'var(--amber-light)', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 600 }}
-          >
-            <span>Conhecer linha</span>
-            <ArrowIcon />
-          </a>
-        </aside>
       </div>
 
       <style>{`
         .hero-grid {
           display: grid;
-          grid-template-columns: 1fr 380px;
+          grid-template-columns: 1fr;
           gap: 60px;
-          align-items: end;
+          align-items: center;
+          justify-items: center;
           padding-bottom: 80px;
           padding-top: 60px;
         }
-        .hero-content { max-width: 720px; }
+        .hero-content {
+          max-width: 1100px;
+          margin: 0 auto;
+          text-align: center;
+        }
+        .hero-sub { margin-left: auto; margin-right: auto; }
+        .hero-actions { justify-content: center; }
         .hero-eyebrow {
           font-size: 10px;
           letter-spacing: 0.3em;
@@ -153,7 +125,7 @@ export default function HeroSection() {
         }
         .hero-h1 { margin-bottom: 36px; }
         .hero-sub {
-          max-width: 480px;
+          max-width: 640px;
           font-size: 16px;
           line-height: 1.7;
           margin-bottom: 40px;
@@ -167,12 +139,10 @@ export default function HeroSection() {
 
         @media (max-width: 1100px) {
           .hero-grid {
-            grid-template-columns: 1fr;
             gap: 40px;
             padding-top: 48px;
             padding-bottom: 60px;
           }
-          .hero-card { max-width: 460px; }
         }
 
         @media (max-width: 640px) {
@@ -185,7 +155,6 @@ export default function HeroSection() {
           .hero-eyebrow { font-size: 9px; margin-bottom: 20px; }
           .hero-h1 { margin-bottom: 24px; }
           .hero-sub { font-size: 14px; margin-bottom: 28px; max-width: 100%; }
-          .hero-card { display: none; }
           .btn-primary, .btn-ghost { padding: 15px 20px; font-size: 10px; }
         }
       `}</style>
