@@ -1,8 +1,6 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { PRIMARY_PHONE } from '@/lib/data'
-import { wppLink } from '@/lib/whatsapp'
 
 const ArrowIcon = () => (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -17,7 +15,6 @@ const WppIcon = () => (
 )
 
 export default function HeroSection() {
-  const wppHref = wppLink(PRIMARY_PHONE, 'Olá! Vim pelo site e gostaria de solicitar um orçamento.')
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -80,7 +77,7 @@ export default function HeroSection() {
           </p>
 
           <div className="animate-fadeup-4 hero-actions">
-            <a className="btn-primary" href={wppHref} target="_blank" rel="noopener noreferrer">
+            <a className="btn-primary" href="#lojas">
               <WppIcon />
               Pedir Orçamento
             </a>

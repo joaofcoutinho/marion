@@ -1,10 +1,8 @@
 import Image from 'next/image'
-import { PRIMARY_PHONE, INSTAGRAM, STORES } from '@/lib/data'
+import { INSTAGRAM, STORES } from '@/lib/data'
 import { wppLink } from '@/lib/whatsapp'
 
 export default function Footer() {
-  const wppHref = wppLink(PRIMARY_PHONE, 'Olá! Gostaria de falar com a Marion Madeiras.')
-
   return (
     <footer className="text-cream-base/60" style={{ background: '#0d0704', padding: '80px 0 32px' }}>
       <div className="container-marion">
@@ -152,10 +150,8 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href={wppHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp da Marion Madeiras"
+              href="/#lojas"
+              aria-label="Ver nossas lojas"
               className="foot-social flex items-center justify-center text-cream-base/60 hover:text-amber-light transition-all duration-200"
               style={{
                 width: 36, height: 36,

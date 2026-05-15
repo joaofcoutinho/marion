@@ -28,6 +28,11 @@ export const metadata: Metadata = {
   title: 'Marion Madeiras — A natureza em cada peça',
   description: 'Madeiras de alta qualidade direto da fábrica. Deck, telhado, pisos, móveis e muito mais. Lojas em Guarapari, Cachoeiro de Itapemirim e Anchieta.',
   keywords: ['madeireira', 'madeira', 'deck', 'telhado', 'Guarapari', 'Espírito Santo'],
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
   openGraph: {
     title: 'Marion Madeiras',
     description: 'Direto da fábrica para sua obra. Qualidade e tradição no ES.',

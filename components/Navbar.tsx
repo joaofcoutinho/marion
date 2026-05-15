@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { PRIMARY_PHONE, CATEGORIES } from '@/lib/data'
-import { wppLink } from '@/lib/whatsapp'
+import { CATEGORIES } from '@/lib/data'
 
 const WPP_ICON = (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -22,8 +21,6 @@ const ArrowIcon = (
 )
 
 export default function Navbar() {
-  const orcamentoLink = wppLink(PRIMARY_PHONE, 'Olá! Gostaria de solicitar um orçamento.')
-
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50"
@@ -106,10 +103,8 @@ export default function Navbar() {
         </nav>
 
         <a
-          href={orcamentoLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Solicitar orçamento via WhatsApp"
+          href="/#lojas"
+          aria-label="Ir para a seção de lojas"
           className="inline-flex items-center gap-2 text-cream-light transition-all duration-200 hover:opacity-90"
           style={{
             background: '#BA4D3E',

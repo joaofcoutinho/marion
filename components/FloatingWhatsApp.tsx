@@ -1,16 +1,9 @@
-import { PRIMARY_PHONE } from '@/lib/data'
-import { wppLink } from '@/lib/whatsapp'
-
 export default function FloatingWhatsApp() {
-  const href = wppLink(PRIMARY_PHONE, 'Olá! Vim pelo site e gostaria de um orçamento.')
-
   return (
     <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      title="Fale conosco pelo WhatsApp"
-      aria-label="Fale conosco pelo WhatsApp"
+      href="/#lojas"
+      title="Ver nossas lojas"
+      aria-label="Ver nossas lojas"
       className="fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full bg-[#25d366] hover:bg-[#128c7e] text-white flex items-center justify-center transition-all duration-200 hover:scale-110 animate-pulse-wpp"
     >
       <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

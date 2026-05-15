@@ -4,8 +4,8 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'
-import { CATEGORIES, PRIMARY_PHONE, type Product } from '@/lib/data'
-import { wppLink } from '@/lib/whatsapp'
+import ProductCard from '@/components/ProductCard'
+import { CATEGORIES } from '@/lib/data'
 
 const ArrowIcon = () => (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -28,57 +28,6 @@ const PdfIcon = () => (
   </svg>
 )
 
-function ProductCard({ product, index }: { product: Product; index: number }) {
-  const wppHref = wppLink(PRIMARY_PHONE, product.wppMsg)
-  const num = String(index + 1).padStart(2, '0')
-
-  return (
-    <a
-      href={wppHref}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="cat-product-card"
-      aria-label={`Pedir orçamento de ${product.name} via WhatsApp`}
-    >
-      <div className="cat-product-media" aria-hidden="true">
-        {product.image ? (
-          <>
-            <div
-              className="cat-product-img"
-              style={{ backgroundImage: `url('${product.image}')` }}
-            />
-            <span className="cat-product-shade" />
-          </>
-        ) : (
-          <>
-            <div className="cat-product-placeholder">
-              <span className="cat-product-monogram font-cormorant italic">M</span>
-              <span className="cat-product-num font-mono">{num}</span>
-            </div>
-            <span className="cat-product-corner cat-product-corner-tl" />
-            <span className="cat-product-corner cat-product-corner-br" />
-          </>
-        )}
-      </div>
-
-      <div className="cat-product-body">
-        <h3 className="font-cormorant font-[500] text-cream-light cat-product-name">
-          {product.name}
-        </h3>
-        {product.desc && (
-          <p className="font-dmsans font-light text-cream-base/65 cat-product-desc">
-            {product.desc}
-          </p>
-        )}
-        <span className="cat-product-cta font-dmsans font-semibold">
-          <WppIcon />
-          Pedir orçamento
-        </span>
-      </div>
-    </a>
-  )
-}
-
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ slug: c.slug }))
 }
@@ -96,7 +45,6 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   const cat = CATEGORIES.find((c) => c.slug === params.slug)
   if (!cat) notFound()
 
-  const wppHref = wppLink(PRIMARY_PHONE, cat.wppMsg)
   const others = CATEGORIES.filter((c) => c.slug !== cat.slug)
 
   return (
@@ -155,7 +103,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
             </p>
 
             <div className="hero-actions" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
-              <a className="btn-primary" href={wppHref} target="_blank" rel="noopener noreferrer">
+              <a className="btn-primary" href="/#lojas">
                 <WppIcon />
                 Pedir Orçamento
               </a>
@@ -299,6 +247,13 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
           position: relative;
           display: flex;
           flex-direction: column;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+          font: inherit;
+          color: inherit;
+          text-align: left;
+          cursor: pointer;
           background: rgba(20,10,4,0.55);
           border: 1px solid rgba(207,143,58,0.18);
           text-decoration: none;

@@ -3,8 +3,7 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingWhatsApp from '@/components/FloatingWhatsApp'
-import { CATEGORIES, PRIMARY_PHONE } from '@/lib/data'
-import { wppLink } from '@/lib/whatsapp'
+import { CATEGORIES } from '@/lib/data'
 
 export const metadata: Metadata = {
   title: 'Produtos — Marion Madeiras',
@@ -25,8 +24,6 @@ const WppIcon = () => (
 )
 
 export default function CategoriesIndexPage() {
-  const wppHref = wppLink(PRIMARY_PHONE, 'Olá! Vim pelo site e gostaria de solicitar um orçamento.')
-
   return (
     <>
       <Navbar />
@@ -151,9 +148,9 @@ export default function CategoriesIndexPage() {
                   Fale com a gente. Atendimento <em className="italic text-amber-light">direto</em> e <em className="italic text-amber-light">sem burocracia</em>.
                 </h3>
               </div>
-              <a className="btn-primary" href={wppHref} target="_blank" rel="noopener noreferrer">
+              <a className="btn-primary" href="/#lojas">
                 <WppIcon />
-                Falar no WhatsApp
+                Ver nossas lojas
               </a>
             </div>
           </div>

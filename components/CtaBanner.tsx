@@ -1,8 +1,6 @@
 'use client'
 
 import { useReveal } from '@/hooks/useReveal'
-import { PRIMARY_PHONE } from '@/lib/data'
-import { wppLink } from '@/lib/whatsapp'
 
 const WppIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -18,7 +16,6 @@ const ArrowIcon = () => (
 
 export default function CtaBanner() {
   const titleRef = useReveal()
-  const href = wppLink(PRIMARY_PHONE, 'Olá! Vim pelo site e quero transformar meu projeto com madeira de qualidade!')
 
   return (
     <section
@@ -107,10 +104,8 @@ export default function CtaBanner() {
 
         <div className="flex justify-center flex-wrap" style={{ gap: 14 }}>
           <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Solicitar orçamento via WhatsApp"
+            href="#lojas"
+            aria-label="Ir para a seção de lojas"
             className="inline-flex items-center gap-3 text-white font-dmsans font-bold transition-all duration-200 hover:-translate-y-0.5"
             style={{
               background: '#25d366',
