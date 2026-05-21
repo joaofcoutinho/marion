@@ -153,17 +153,17 @@ export const CATEGORIES: Category[] = [
     products: [
       {
         slug: 'tabua-de-pinus',
-        name: 'Tábua de Pinus',
+        name: 'Pinus',
         desc: 'Madeira leve e versátil, ideal para fôrmas, móveis simples e acabamentos internos.',
         image: '/cat-construcao/tabus-pinus.png',
-        wppMsg: 'Olá! Tenho interesse na Tábua de Pinus. Pode me passar um orçamento?',
+        wppMsg: 'Olá! Tenho interesse em Pinus. Pode me passar um orçamento?',
       },
       {
         slug: 'madeirite-comum',
-        name: 'Madeirite Comum',
+        name: 'Compensado',
         desc: 'Compensado resinado para fôrmas de concreto, tapumes e usos estruturais em obras.',
         image: '/cat-construcao/madeirite-comum.png',
-        wppMsg: 'Olá! Tenho interesse no Madeirite Comum. Pode me passar um orçamento?',
+        wppMsg: 'Olá! Tenho interesse no Compensado. Pode me passar um orçamento?',
       },
       {
         slug: 'madeirite-plastificado',
@@ -202,10 +202,10 @@ export const CATEGORIES: Category[] = [
       },
       {
         slug: 'esteio-eucalipto-tratado',
-        name: 'Esteio (Eucalipto Tratado)',
+        name: 'Porteira de Eucalipto Tratado',
         desc: 'Peças robustas para sustentação de currais, mangueiros, galpões e porteiras. Tratamento autoclave para uso pesado no campo.',
         image: '/cat-rural/Esteio (Eucalipto Tratado).png',
-        wppMsg: 'Olá! Tenho interesse no Esteio (Eucalipto Tratado). Pode me passar um orçamento?',
+        wppMsg: 'Olá! Tenho interesse na Porteira de Eucalipto Tratado. Pode me passar um orçamento?',
       },
       {
         slug: 'arame-farpado',
