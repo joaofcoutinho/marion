@@ -35,12 +35,12 @@ export default function AboutSection() {
             <span>Nossa história</span>
           </div>
 
-          <h2 className="font-cormorant font-[500] about-title-size about-heading" style={{ color: 'var(--brown-deep)' }}>
+          <h2 className="font-display font-[500] about-title-size about-heading" style={{ color: 'var(--brown-deep)' }}>
             Tradição familiar em <em className="italic font-[500]" style={{ color: 'var(--amber-base)' }}>madeira de qualidade</em>.
           </h2>
 
           <p
-            className="font-cormorant italic about-lead"
+            className="font-display italic about-lead"
             style={{ color: 'rgba(26,12,4,0.82)' }}
           >
             "Cada peça que sai da Marion carrega mais de quarenta anos de mão na madeira —
@@ -63,7 +63,7 @@ export default function AboutSection() {
           <div className="about-stats">
             {STATS.map((s) => (
               <div key={s.label}>
-                <div className="font-cormorant font-[500] about-stat-num" style={{ color: 'var(--amber-base)' }}>
+                <div className="font-display font-[500] about-stat-num" style={{ color: 'var(--amber-base)' }}>
                   {s.num}
                   {s.sup && <em className="italic" style={{ fontSize: '0.6em', color: 'var(--wood-warm)' }}>{s.sup}</em>}
                 </div>
@@ -82,15 +82,22 @@ export default function AboutSection() {
             aria-hidden="true"
           />
           <div className="about-image-main relative overflow-hidden" style={{ background: 'var(--brown-mid)', boxShadow: '0 40px 80px -30px rgba(26,12,4,0.45)', zIndex: 1 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/Marion.png" alt="Marion Madeiras" className="w-full h-full object-cover block" loading="lazy" />
+            <video
+              src="/video-secao.mp4"
+              className="w-full h-full object-cover block"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
             <div
               className="absolute flex justify-between items-center"
               style={{ bottom: 24, left: 24, right: 24, background: 'rgba(20,10,4,0.85)', backdropFilter: 'blur(8px)', padding: '18px 22px', borderLeft: '2px solid var(--amber-base)' }}
             >
               <div>
                 <div className="font-mono text-amber-light" style={{ fontSize: 9, letterSpacing: '0.28em', textTransform: 'uppercase', opacity: 0.7, marginBottom: 4 }}>Iconha · ES</div>
-                <div className="font-cormorant italic text-cream-base" style={{ fontSize: 18 }}>Onde tudo começa</div>
+                <div className="font-display italic text-cream-base" style={{ fontSize: 18 }}>Onde tudo começa</div>
               </div>
             </div>
           </div>

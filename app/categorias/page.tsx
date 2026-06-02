@@ -68,7 +68,7 @@ export default function CategoriesIndexPage() {
               Catálogo completo
             </div>
 
-            <h1 className="font-cormorant font-[500] text-cream-base hero-title-size" style={{ marginBottom: 24, maxWidth: 900 }}>
+            <h1 className="font-display font-[500] text-cream-base hero-title-size" style={{ marginBottom: 24, maxWidth: 900 }}>
               Produtos por <em className="text-amber-light italic font-[400]">categoria</em>
               <span className="italic text-amber-base" style={{ fontWeight: 400, fontSize: '0.85em', verticalAlign: '0.05em' }}>.</span>
             </h1>
@@ -105,7 +105,7 @@ export default function CategoriesIndexPage() {
                   <span style={{ width: 28, height: 1, background: 'var(--amber-base)' }} />
                   Por categoria
                 </div>
-                <h2 className="font-cormorant font-[500] text-cream-base section-title-size" style={{ lineHeight: 1.05 }}>
+                <h2 className="font-display font-[500] text-cream-base section-title-size" style={{ lineHeight: 1.05 }}>
                   Oito linhas, <em className="italic text-amber-light">um padrão</em>.
                 </h2>
               </div>
@@ -124,7 +124,7 @@ export default function CategoriesIndexPage() {
                   />
                   <div className="cat-index-overlay" aria-hidden="true" />
                   <div className="cat-index-body">
-                    <h3 className="font-cormorant font-[500] text-cream-light cat-index-title">
+                    <h3 className="font-display font-[500] text-cream-light cat-index-title">
                       {c.name}.
                     </h3>
                     <span className="cat-index-arrow font-dmsans font-semibold text-amber-light">
@@ -144,7 +144,7 @@ export default function CategoriesIndexPage() {
                 >
                   Não achou o que procura?
                 </div>
-                <h3 className="font-cormorant font-[500] text-cream-base" style={{ fontSize: 30, lineHeight: 1.15, maxWidth: 560 }}>
+                <h3 className="font-display font-[500] text-cream-base" style={{ fontSize: 30, lineHeight: 1.15, maxWidth: 560 }}>
                   Fale com a gente. Atendimento <em className="italic text-amber-light">direto</em> e <em className="italic text-amber-light">sem burocracia</em>.
                 </h3>
               </div>

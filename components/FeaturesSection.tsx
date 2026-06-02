@@ -44,7 +44,7 @@ export default function FeaturesSection() {
               <span className="dash" />
               <span>Por que nos escolher</span>
             </div>
-            <h2 className="font-cormorant font-[500] section-title-size" style={{ color: 'var(--brown-deep)' }}>
+            <h2 className="font-display font-[500] section-title-size" style={{ color: 'var(--brown-deep)' }}>
               O que nos<br /><em className="italic" style={{ color: 'var(--amber-base)' }}>diferencia</em>.
             </h2>
           </div>
@@ -65,7 +65,7 @@ export default function FeaturesSection() {
                 {ICONS[feat.icon]}
               </div>
 
-              <h3 className="font-cormorant font-semibold feature-title">
+              <h3 className="font-display font-semibold feature-title">
                 {feat.title}
               </h3>
               <p className="font-dmsans font-light feature-text">

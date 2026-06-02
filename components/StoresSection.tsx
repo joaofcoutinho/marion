@@ -79,7 +79,7 @@ function StoreCard({ store, delay }: { store: typeof STORES[0]; delay: number })
             {store.tag}
           </span>
         )}
-        <h3 className="font-cormorant font-[500] text-amber-light" style={{ fontSize: 32, lineHeight: 1.05, marginBottom: 12 }}>
+        <h3 className="font-display font-[500] text-amber-light" style={{ fontSize: 32, lineHeight: 1.05, marginBottom: 12 }}>
           {store.cityItalic ? <em className="italic">{store.city}</em> : store.city}
         </h3>
 
@@ -121,7 +121,7 @@ export default function StoresSection() {
               <span className="dash" />
               <span>Nossas lojas</span>
             </div>
-            <h2 className="font-cormorant font-[500] text-cream-base section-title-size">
+            <h2 className="font-display font-[500] text-cream-base section-title-size">
               Sempre <em className="text-amber-light italic">perto</em><br />de você.
             </h2>
           </div>

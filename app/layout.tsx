@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
-import { Cormorant_Garamond, DM_Sans, JetBrains_Mono } from 'next/font/google'
+import { Montserrat, DM_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
 const GTM_ID = 'GTM-NH8JSJFQ'
 
-const cormorant = Cormorant_Garamond({
+const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
-  variable: '--font-cormorant',
+  variable: '--font-display',
   display: 'swap',
 })
 
@@ -28,7 +28,7 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Marion Madeiras — A natureza em cada peça',
+  title: 'Marion Madeiras - A natureza em cada peça',
   description: 'Madeiras de alta qualidade direto da fábrica. Deck, telhado, pisos, móveis e muito mais. Lojas em Guarapari, Cachoeiro de Itapemirim e Anchieta.',
   keywords: ['madeireira', 'madeira', 'deck', 'telhado', 'Guarapari', 'Espírito Santo'],
   icons: {
@@ -56,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable}`}>
+    <html lang="pt-BR" className={`${montserrat.variable} ${dmSans.variable} ${jetbrains.variable}`}>
       <head>
         <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

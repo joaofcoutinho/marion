@@ -87,7 +87,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
               <span style={{ color: 'var(--cream-base)' }}>{cat.name}</span>
             </nav>
 
-            <h1 className="font-cormorant font-[500] text-cream-base hero-title-size" style={{ marginBottom: 24 }}>
+            <h1 className="font-display font-[500] text-cream-base hero-title-size" style={{ marginBottom: 24 }}>
               {cat.name}{' '}
               {cat.italic && (
                 <em className="text-amber-light not-italic italic font-[400]">{cat.italic}</em>
@@ -140,7 +140,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                     <span style={{ width: 28, height: 1, background: 'var(--amber-base)' }} />
                     Produtos disponíveis
                   </div>
-                  <h2 className="font-cormorant font-[500] text-cream-base" style={{ fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: 1.1, marginBottom: 12 }}>
+                  <h2 className="font-display font-[500] text-cream-base" style={{ fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: 1.1, marginBottom: 12 }}>
                     Linha em <em className="italic text-amber-light">destaque</em>.
                   </h2>
                   <p className="font-dmsans font-light text-cream-base/60" style={{ fontSize: 14.5, lineHeight: 1.7, maxWidth: 480 }}>
@@ -165,7 +165,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                 >
                   Catálogo completo
                 </div>
-                <h3 className="font-cormorant font-[500] text-cream-base" style={{ fontSize: 30, lineHeight: 1.15, maxWidth: 520 }}>
+                <h3 className="font-display font-[500] text-cream-base" style={{ fontSize: 30, lineHeight: 1.15, maxWidth: 520 }}>
                   Veja toda a linha Marion no <em className="italic text-amber-light">catálogo</em> em PDF.
                 </h3>
               </div>
@@ -190,7 +190,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
               <span style={{ width: 28, height: 1, background: 'var(--amber-base)' }} />
               Outras categorias
             </div>
-            <h2 className="font-cormorant font-[500] text-cream-base" style={{ fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.1, marginBottom: 36 }}>
+            <h2 className="font-display font-[500] text-cream-base" style={{ fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.1, marginBottom: 36 }}>
               Explore mais <em className="italic text-amber-light">linhas</em>.
             </h2>
 
@@ -204,7 +204,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                   />
                   <div className="cat-other-overlay" aria-hidden="true" />
                   <div className="cat-other-body">
-                    <div className="font-cormorant font-[500] text-cream-base" style={{ fontSize: 24, lineHeight: 1.15 }}>
+                    <div className="font-display font-[500] text-cream-base" style={{ fontSize: 24, lineHeight: 1.15 }}>
                       {o.name}.
                     </div>
                     <span className="cat-other-arrow font-dmsans font-semibold text-amber-light" style={{ fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 12, display: 'inline-flex', alignItems: 'center', gap: 8 }}>

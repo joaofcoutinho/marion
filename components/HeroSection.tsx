@@ -63,7 +63,7 @@ export default function HeroSection() {
           </div>
 
           <h1
-            className="animate-fadeup-2 font-cormorant font-[500] text-cream-base hero-title-size hero-h1"
+            className="animate-fadeup-2 font-display font-[500] text-cream-base hero-title-size hero-h1"
             style={{ textShadow: '0 4px 32px rgba(0,0,0,0.85), 0 2px 8px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.5)' }}
           >
             A natureza em cada&nbsp;<em className="text-amber-light not-italic italic font-[400]">peça</em>

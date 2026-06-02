@@ -31,7 +31,7 @@ const config: Config = {
         off:   '#fefaf3',
       },
       fontFamily: {
-        cormorant: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        display:   ['var(--font-display)', 'system-ui', 'sans-serif'],
         dmsans:    ['var(--font-dmsans)', 'system-ui', 'sans-serif'],
         mono:      ['var(--font-jetbrains)', 'monospace'],
       },

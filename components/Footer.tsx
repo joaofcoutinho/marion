@@ -27,7 +27,7 @@ export default function Footer() {
               style={{ height: 56, marginBottom: 14 }}
             />
             <div
-              className="font-cormorant italic text-amber-light"
+              className="font-display italic text-amber-light"
               style={{ fontSize: 16, marginBottom: 24 }}
             >
               — Madeiras nobres do Espírito Santo —

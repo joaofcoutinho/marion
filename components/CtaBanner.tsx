@@ -69,7 +69,7 @@ export default function CtaBanner() {
 
         <h2
           ref={titleRef}
-          className="reveal font-cormorant font-[500] cta-title-size"
+          className="reveal font-display font-[500] cta-title-size"
           style={{ marginBottom: 36, color: 'var(--brown-deep)' }}
         >
           Transforme seu projeto<br />

@@ -34,7 +34,7 @@ export default function ProductCard({ product, index }: { product: Product; inde
           ) : (
             <>
               <div className="cat-product-placeholder">
-                <span className="cat-product-monogram font-cormorant italic">M</span>
+                <span className="cat-product-monogram font-display italic">M</span>
                 <span className="cat-product-num font-mono">{num}</span>
               </div>
               <span className="cat-product-corner cat-product-corner-tl" />
@@ -44,7 +44,7 @@ export default function ProductCard({ product, index }: { product: Product; inde
         </div>
 
         <div className="cat-product-body">
-          <h3 className="font-cormorant font-[500] text-cream-light cat-product-name">
+          <h3 className="font-display font-[500] text-cream-light cat-product-name">
             {product.name}
           </h3>
           {product.desc && (

@@ -31,7 +31,7 @@ function ProductCard({ product }: { product: typeof PRODUCTS[0] }) {
 
       <div className="relative z-[2] mt-auto text-cream-base product-body">
         <h3
-          className="font-cormorant font-[500] text-cream-light"
+          className="font-display font-[500] text-cream-light"
           style={{ lineHeight: 1.1, marginBottom: 14, whiteSpace: 'pre-line' }}
         >
           {product.name}
@@ -74,7 +74,7 @@ export default function ProductsSection() {
             <span>Catálogo</span>
           </div>
 
-          <h2 className="font-cormorant font-[500] text-cream-base section-title-size products-title">
+          <h2 className="font-display font-[500] text-cream-base section-title-size products-title">
             Madeira para cada<br />
             <em className="text-amber-light italic">necessidade</em>.
           </h2>
@@ -104,7 +104,7 @@ export default function ProductsSection() {
           >
             <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'rgba(0,0,0,0.15)' }} />
             <div className="relative z-[2]">
-              <div className="font-cormorant font-[500] text-cream-base group-hover:text-amber-light transition-colors duration-200 cta-card-title">
+              <div className="font-display font-[500] text-cream-base group-hover:text-amber-light transition-colors duration-200 cta-card-title">
                 Ver todas as<br /><em className="italic text-amber-light">categorias</em>.
               </div>
               <span className="inline-flex items-center gap-2 font-dmsans font-semibold text-amber-light group-hover:gap-4 transition-all duration-200" style={{ fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase' }}>

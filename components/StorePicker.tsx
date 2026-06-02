@@ -56,7 +56,7 @@ export default function StorePicker({ open, onClose, message, title, subtitle }:
           Orçamento via WhatsApp
         </div>
 
-        <h2 className="font-cormorant font-[500] text-cream-base sp-title">
+        <h2 className="font-display font-[500] text-cream-base sp-title">
           {title ?? <>Escolha a <em className="italic text-amber-light">loja</em>.</>}
         </h2>
 
@@ -77,7 +77,7 @@ export default function StorePicker({ open, onClose, message, title, subtitle }:
                 <span className="font-mono sp-card-index">{s.index}</span>
                 {s.tag && <span className="font-mono sp-card-tag">{s.tag}</span>}
               </div>
-              <div className="font-cormorant sp-card-city">
+              <div className="font-display sp-card-city">
                 {s.cityItalic ? <em className="italic text-amber-light">{s.city}</em> : s.city}
               </div>
               <div className="font-dmsans sp-card-address">{s.address}</div>
